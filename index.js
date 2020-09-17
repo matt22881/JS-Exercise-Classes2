@@ -46,15 +46,15 @@ class Person {
     this.age = age
     this.stomach = []
   };
-  eat = function (edible) {
+  eat(edible) {
     if (this.stomach.length < 10) {
       this.stomach.push(edible)
     }
   };
-  poop = function () {
+  poop() {
     this.stomach = []
   };
-  toString = function () {
+  toString() {
     return (`${this.name}, ${this.age}`)
   };
 }
@@ -79,6 +79,7 @@ const matt = new Person('Matt', 39);
 // console.log(matt.stomach);
 // matt.eat("chips")
 // matt.eat("glass")
+// console.log(matt.stomach)
 
 /*
   TASK 2
@@ -101,10 +102,10 @@ class Car {
     this.tank = 0
     this.odometer = 0
   };
-  fill = function (gals) {
+  fill(gals) {
     this.tank = this.tank + gals
   };
-  drive = function (distance) {
+  drive(distance) {
     if (this.tank - (distance / this.milesPerGallon) > 0) {
       this.tank = this.tank - (distance / this.milesPerGallon)
       this.odometer = this.odometer + distance
@@ -276,7 +277,7 @@ const mattP = new ProjectManager({
   location: "Pennsylvania",
   specialty: "Typographical and Syntax Error",
   favLanguage: "DOS",
-  catchPhrase: "Whaddya mean it\'s undefined????",
+  catchPhrase: "Whaddya mean it's undefined????",
   gradClassName: "TBD",
   favInstructor: "Britt"
 })
