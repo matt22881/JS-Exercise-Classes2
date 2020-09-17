@@ -138,8 +138,23 @@ const cav = new Car("Cavalier", 35);
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(that) {
+    this.name = that.name;
+    this.age = that.age;
+    this.location = that.location
+  }
+  speak() {
+    return (`Hello my name is ${this.name}, I am from ${this.location}`)
+  }
 }
+const mattL = new Lambdasian({
+  name: 'Matt',
+  age: 39,
+  location: 'Pennsylvania'
+});
+
+// console.log(mattL.speak())
+
 
 /*
   TASK 4
@@ -155,9 +170,32 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
 
+class Instructor extends Lambdasian {
+  constructor(that) {
+    super(that)
+    this.specialty = that.specialty,
+      this.favLanguage = that.favLanguage,
+      this.catchPhrase = that.catchPhrase
+  };
+  demo(sub) {
+    return (`Today we are learning about ${sub}`)
+  };
+  grade(student, subj) {
+    return (`${student.name} receives a perfect score on ${subj}`)
+  };
 }
+const mattI = new Instructor({
+  name: "Matt",
+  age: 39,
+  location: "Pennsylvania",
+  specialty: "Typographical and Syntax Error",
+  favLanguage: "DOS",
+  catchPhrase: "Whaddya mean it\'s undefined????",
+});
+// console.log(mattI.demo("procrastinating"));
+// console.log(mattI.grade(mattL, 'Napping'));
+
 
 /*
   TASK 5
@@ -174,9 +212,35 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+  constructor(that) {
+    super(that);
+    this.previousBackground = that.previousBackground;
+    this.className = that.className;
+    this.favSubjects = that.favSubjects;
+  }
+  listSubjects() {
+    return `Loving ${this.favSubjects.toString()}`
+  };
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`
+  }
+  sprintChallenge(subject) {
+    return `${this.name} has begun a sprint challenge on ${subject}`
+  }
 }
+
+const mattS = new Student({
+  name: "Matt",
+  age: 39,
+  location: "Pennsylvania",
+  previousBackground: "Mechanic",
+  className: "Web36",
+  favSubjects: ["javascript", "python", "node", "anything Britt teaches"]
+})
+
+// console.log(mattS.listSubjects());
+// console.log(mattS.PRAssignment("subject"));
 
 /*
   TASK 6
