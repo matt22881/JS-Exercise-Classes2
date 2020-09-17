@@ -148,7 +148,7 @@ class Lambdasian {
   }
 }
 const mattL = new Lambdasian({
-  name: 'Matt',
+  name: 'Matt L',
   age: 39,
   location: 'Pennsylvania'
 });
@@ -186,7 +186,7 @@ class Instructor extends Lambdasian {
   };
 }
 const mattI = new Instructor({
-  name: "Matt",
+  name: "Matt I",
   age: 39,
   location: "Pennsylvania",
   specialty: "Typographical and Syntax Error",
@@ -231,7 +231,7 @@ class Student extends Lambdasian {
 }
 
 const mattS = new Student({
-  name: "Matt",
+  name: "Matt S",
   age: 39,
   location: "Pennsylvania",
   previousBackground: "Mechanic",
@@ -255,9 +255,33 @@ const mattS = new Student({
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+  constructor(that) {
+    super(that);
+    this.gradClassName = that.gradClassName;
+    this.favInstructor = that.favInstructor
+  }
+  standUp(channel) {
+    return `${this.name} announces to ${channel} "@channel, standy times"`
+  }
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
 }
+
+const mattP = new ProjectManager({
+  name: "Matt P",
+  age: 39,
+  location: "Pennsylvania",
+  specialty: "Typographical and Syntax Error",
+  favLanguage: "DOS",
+  catchPhrase: "Whaddya mean it\'s undefined????",
+  gradClassName: "TBD",
+  favInstructor: "Britt"
+})
+
+console.log(mattP.standUp("myChannel"));
+console.log(mattP.debugsCode(mattS, "napping"));
 
 /*
   STRETCH PROBLEM (no tests!)
