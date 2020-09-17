@@ -41,8 +41,43 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+    this.stomach = []
+  };
+  eat = function (edible) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(edible)
+    }
+  };
+  poop = function () {
+    this.stomach = []
+  };
+  toString = function () {
+    return (`${this.name}, ${this.age}`)
+  };
 }
+
+const matt = new Person('Matt', 39);
+// matt.eat("pizza1");
+// matt.eat("pizza2");
+// matt.eat("pizza3");
+// matt.eat("pizza4");
+// matt.eat("pizza5");
+// matt.eat("pizza6");
+// matt.eat("pizza7");
+// matt.eat("pizza8");
+// matt.eat("pizza9");
+// console.log(matt.stomach)
+// matt.eat("pizza10");
+// console.log(matt.stomach)
+// matt.eat("pizza11");
+// console.log(matt.stomach);
+// matt.poop();
+// console.log(matt.stomach);
+// matt.eat("chips")
+// matt.eat("glass")
 
 /*
   TASK 2
@@ -59,8 +94,36 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+    this.model = model
+    this.milesPerGallon = milesPerGallon
+    this.tank = 0
+    this.odometer = 0
+  };
+  fill = function (gals) {
+    this.tank = this.tank + gals
+  };
+  drive = function (distance) {
+    if (this.tank - (distance / this.milesPerGallon) > 0) {
+      this.tank = this.tank - (distance / this.milesPerGallon)
+      this.odometer = this.odometer + distance
+    } else {
+      this.odometer = this.odometer + this.tank * this.milesPerGallon
+      this.tank = 0
+      return (`I ran out of fuel at ${this.odometer} miles!`)
+    }
+  }
 }
+
+const cav = new Car("Cavalier", 35);
+
+// console.log(cav);
+// cav.fill(20);
+// console.log(cav);
+// console.log(cav.drive(800));
+// console.log(cav);
+
+
 
 /*
   TASK 3
@@ -146,11 +209,25 @@ class ProjectManager {
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
-  if (Instructor) { module.exports.Instructor = Instructor }
-  if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+  if (Airplane) {
+    module.exports.Airplane = Airplane
+  }
+  if (Person) {
+    module.exports.Person = Person
+  }
+  if (Car) {
+    module.exports.Car = Car
+  }
+  if (Lambdasian) {
+    module.exports.Lambdasian = Lambdasian
+  }
+  if (Instructor) {
+    module.exports.Instructor = Instructor
+  }
+  if (Student) {
+    module.exports.Student = Student
+  }
+  if (ProjectManager) {
+    module.exports.ProjectManager = ProjectManager
+  }
 }
