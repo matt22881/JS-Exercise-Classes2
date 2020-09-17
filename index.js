@@ -60,6 +60,7 @@ class Person {
 }
 
 const matt = new Person('Matt', 39);
+// console.log(matt.toString())
 // matt.eat("pizza1");
 // matt.eat("pizza2");
 // matt.eat("pizza3");
@@ -148,9 +149,9 @@ class Lambdasian {
   }
 }
 const mattL = new Lambdasian({
-  name: 'Matt L',
+  name: "Matt L",
   age: 39,
-  location: 'Pennsylvania'
+  location: "Pennsylvania"
 });
 
 // console.log(mattL.speak())
@@ -191,7 +192,7 @@ const mattI = new Instructor({
   location: "Pennsylvania",
   specialty: "Typographical and Syntax Error",
   favLanguage: "DOS",
-  catchPhrase: "Whaddya mean it\'s undefined????",
+  catchPhrase: "Whaddya mean it's undefined????",
 });
 // console.log(mattI.demo("procrastinating"));
 // console.log(mattI.grade(mattL, 'Napping'));
@@ -280,8 +281,8 @@ const mattP = new ProjectManager({
   favInstructor: "Britt"
 })
 
-console.log(mattP.standUp("myChannel"));
-console.log(mattP.debugsCode(mattS, "napping"));
+// console.log(mattP.standUp("myChannel"));
+// console.log(mattP.debugsCode(mattS, "napping"));
 
 /*
   STRETCH PROBLEM (no tests!)
